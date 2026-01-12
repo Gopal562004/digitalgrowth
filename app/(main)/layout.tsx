@@ -1,5 +1,4 @@
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navbar from "@/app/_components/layout/Navbar";
 import Footer from "@/app/_components/layout/Footer";
 import Meta from "@/app/_components/seo/Meta";
@@ -27,9 +26,8 @@ export default function MainLayout({
           <main className="flex-grow">{children}</main>
           <Footer />
         </div>
-        {/* Add both Analytics and Speed Insights */}
+        {/* Add Analytics here - after all content */}
         <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );
