@@ -239,34 +239,27 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-
+      
       // Simple active link detection
       const sections = document.querySelectorAll("section[id]");
       const scrollPos = window.scrollY + 100;
-
+      
       let current = "Home";
-
+      
       sections.forEach((section) => {
         const sectionTop = (section as HTMLElement).offsetTop;
         const sectionHeight = (section as HTMLElement).clientHeight;
         const sectionId = section.getAttribute("id");
-
+        
         if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-          current =
-            sectionId === "home"
-              ? "Home"
-              : sectionId === "services"
-              ? "Services"
-              : sectionId === "why-us"
-              ? "Why Us"
-              : sectionId === "projects"
-              ? "Projects"
-              : sectionId === "contact"
-              ? "Contact"
-              : "Home";
+          current = sectionId === "home" ? "Home" :
+                   sectionId === "services" ? "Services" :
+                   sectionId === "why-us" ? "Why Us" :
+                   sectionId === "projects" ? "Projects" :
+                   sectionId === "contact" ? "Contact" : "Home";
         }
       });
-
+      
       setActiveLink(current);
     };
 
@@ -331,7 +324,7 @@ export default function Navbar() {
                 {link.name}
               </a>
             ))}
-
+            
             {/* Desktop CTA - Smaller */}
             <div className="ml-3 pl-3 border-l border-gray-200 flex items-center gap-3">
               <a
@@ -416,7 +409,7 @@ export default function Navbar() {
         )}
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes slideDown {
           from {
             opacity: 0;

@@ -4,10 +4,22 @@ import Footer from "@/app/_components/layout/Footer";
 import Meta from "@/app/_components/seo/Meta";
 import "@/app/styles/globals.css";
 
+// export const metadata = {
+//   title: "DigitalGrowth | Web Development & SEO Agency",
+//   description:
+//     "Helping small businesses grow with custom websites, SEO optimization, and digital solutions.",
+// };
+
+
 export const metadata = {
   title: "DigitalGrowth | Web Development & SEO Agency",
   description:
     "Helping small businesses grow with custom websites, SEO optimization, and digital solutions.",
+  icons: {
+    icon: [{ url: "/icons/digitalgrowth.png", type: "image/png" }],
+    apple: [{ url: "/icons/digitalgrowth.png", type: "image/png" }],
+    shortcut: ["/icons/digitalgrowth.png"],
+  },
 };
 
 export default function MainLayout({
