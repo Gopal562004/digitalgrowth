@@ -296,7 +296,7 @@ export default function Navbar() {
           <div className="flex items-center gap-2">
             <a
               href="#home"
-              className="text-xl font-bold flex items-center gap-1"
+              className="text-xl font-bold flex items-center"
               onClick={() => handleNavClick("Home")}
             >
               <span className="text-blue-600">Digital</span>
