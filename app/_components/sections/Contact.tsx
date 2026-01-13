@@ -1,3 +1,254 @@
+// "use client";
+
+// import { useState } from "react";
+// import Button from "../ui/Button";
+// import {
+//   FiMail,
+//   FiPhone,
+//   FiMapPin,
+//   FiSend,
+//   FiCheckCircle,
+//   FiMessageSquare,
+// } from "react-icons/fi";
+
+// export default function Contact() {
+//   const [formData, setFormData] = useState({
+//     name: "",
+//     email: "",
+//     message: "",
+//   });
+
+//   const [isSubmitting, setIsSubmitting] = useState(false);
+//   const [isSubmitted, setIsSubmitted] = useState(false);
+
+//   const handleChange = (
+//     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+//   ) => {
+//     setFormData({
+//       ...formData,
+//       [e.target.name]: e.target.value,
+//     });
+//   };
+
+//   const handleSubmit = async (e: React.FormEvent) => {
+//     e.preventDefault();
+//     setIsSubmitting(true);
+
+//     // Simulate API call
+//     setTimeout(() => {
+//       setIsSubmitting(false);
+//       setIsSubmitted(true);
+
+//       setTimeout(() => {
+//         setIsSubmitted(false);
+//         setFormData({ name: "", email: "", message: "" });
+//       }, 3000);
+//     }, 1500);
+//   };
+
+//   return (
+//     <section id="contact" className="py-16 md:py-20 bg-white">
+//       <div className="container-custom">
+//         {/* Header */}
+//         <div className="text-center max-w-2xl mx-auto mb-12">
+//           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 text-blue-600 text-xs font-medium mb-4">
+//             <FiMessageSquare /> Get in Touch
+//           </div>
+//           <h2 className="text-3xl font-bold text-gray-900 mb-4">
+//             Contact <span className="text-blue-700">Us</span>
+//           </h2>
+//           <p className="text-gray-600">
+//             Ready to discuss your project? Send us a message.
+//           </p>
+//         </div>
+
+//         <div className="max-w-4xl mx-auto">
+//           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+//             {/* Contact Info */}
+//             <div className="space-y-6">
+//               <div className="p-6 bg-white border border-gray-200 rounded-xl">
+//                 <div className="flex items-center gap-4 mb-4">
+//                   <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center">
+//                     <FiMail className="w-6 h-6 text-blue-600" />
+//                   </div>
+//                   <div>
+//                     <h4 className="font-semibold text-gray-900">Email</h4>
+//                     <a
+//                       href="mailto:hello@digitalgrowth.com"
+//                       className="text-sm text-blue-600 hover:text-blue-700"
+//                     >
+//                       hello@digitalgrowth.com
+//                     </a>
+//                   </div>
+//                 </div>
+//               </div>
+
+//               <div className="p-6 bg-white border border-gray-200 rounded-xl">
+//                 <div className="flex items-center gap-4 mb-4">
+//                   <div className="w-12 h-12 rounded-lg bg-emerald-100 flex items-center justify-center">
+//                     <FiPhone className="w-6 h-6 text-emerald-600" />
+//                   </div>
+//                   <div>
+//                     <h4 className="font-semibold text-gray-900">Phone</h4>
+//                     <a
+//                       href="tel:+918237742040"
+//                       className="text-sm text-emerald-600 hover:text-emerald-700"
+//                     >
+//                       +91 82377 42040
+//                     </a>
+//                   </div>
+//                 </div>
+//               </div>
+
+//               <div className="p-6 bg-white border border-gray-200 rounded-xl">
+//                 <div className="flex items-center gap-4 mb-4">
+//                   <div className="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center">
+//                     <FiMapPin className="w-6 h-6 text-amber-600" />
+//                   </div>
+//                   <div>
+//                     <h4 className="font-semibold text-gray-900">Hours</h4>
+//                     <p className="text-sm text-gray-600">
+//                       Mon-Fri: 9AM-6PM IST
+//                     </p>
+//                   </div>
+//                 </div>
+//               </div>
+
+//               {/* Guarantee */}
+//               <div className="p-5 bg-blue-50 border border-blue-100 rounded-xl">
+//                 <div className="flex items-center gap-2 mb-2">
+//                   <FiCheckCircle className="text-emerald-500" />
+//                   <span className="text-sm font-medium text-gray-900">
+//                     Fast Response
+//                   </span>
+//                 </div>
+//                 <p className="text-xs text-gray-600">
+//                   We reply within 4 hours on business days
+//                 </p>
+//               </div>
+//             </div>
+
+//             {/* Contact Form */}
+//             <div className="lg:col-span-2">
+//               <div className="bg-white border border-gray-200 rounded-xl p-6 md:p-8">
+//                 {isSubmitted ? (
+//                   <div className="text-center py-8">
+//                     <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+//                       <FiCheckCircle className="w-8 h-8 text-emerald-500" />
+//                     </div>
+//                     <h3 className="text-xl font-bold text-gray-900 mb-3">
+//                       Message Sent!
+//                     </h3>
+//                     <p className="text-gray-600 mb-6">
+//                       We'll get back to you soon.
+//                     </p>
+//                     <Button
+//                       variant="outline"
+//                       onClick={() => setIsSubmitted(false)}
+//                       className="border-blue-300 text-blue-700"
+//                     >
+//                       Send Another
+//                     </Button>
+//                   </div>
+//                 ) : (
+//                   <>
+//                     <h3 className="text-xl font-bold text-gray-900 mb-6">
+//                       Send Message
+//                     </h3>
+//                     <form onSubmit={handleSubmit} className="space-y-6">
+//                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+//                         <div>
+//                           <label className="block text-sm font-medium text-gray-700 mb-2">
+//                             Name *
+//                           </label>
+//                           <input
+//                             type="text"
+//                             name="name"
+//                             value={formData.name}
+//                             onChange={handleChange}
+//                             required
+//                             className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 outline-none"
+//                             placeholder="Your name"
+//                           />
+//                         </div>
+
+//                         <div>
+//                           <label className="block text-sm font-medium text-gray-700 mb-2">
+//                             Email *
+//                           </label>
+//                           <input
+//                             type="email"
+//                             name="email"
+//                             value={formData.email}
+//                             onChange={handleChange}
+//                             required
+//                             className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 outline-none"
+//                             placeholder="your@email.com"
+//                           />
+//                         </div>
+//                       </div>
+
+//                       <div>
+//                         <label className="block text-sm font-medium text-gray-700 mb-2">
+//                           Message *
+//                         </label>
+//                         <textarea
+//                           name="message"
+//                           value={formData.message}
+//                           onChange={handleChange}
+//                           required
+//                           rows={4}
+//                           className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 outline-none resize-none"
+//                           placeholder="Tell us about your project..."
+//                         />
+//                       </div>
+
+//                       <div>
+//                         <Button
+//                           type="submit"
+//                           variant="primary"
+//                           disabled={isSubmitting}
+//                           className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3.5 rounded-lg"
+//                         >
+//                           {isSubmitting ? (
+//                             <div className="flex items-center justify-center gap-2">
+//                               <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+//                               Sending...
+//                             </div>
+//                           ) : (
+//                             <div className="flex items-center justify-center gap-2">
+//                               <FiSend className="w-4 h-4" />
+//                               Send Message
+//                             </div>
+//                           )}
+//                         </Button>
+//                       </div>
+//                     </form>
+//                   </>
+//                 )}
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* Additional Info */}
+//         <div className="mt-12 pt-8 border-t border-gray-200">
+//           <div className="text-center">
+//             <p className="text-sm text-gray-500">
+//               Prefer a quick call?{" "}
+//               <a
+//                 href="tel:+918237742040"
+//                 className="text-blue-600 hover:text-blue-700 font-medium"
+//               >
+//                 Schedule a 15-minute discovery call →
+//               </a>
+//             </p>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
 "use client";
 
 import { useState } from "react";
@@ -47,32 +298,32 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-20 bg-white">
+    <section id="contact" className="py-10 md:py-12 bg-white">
       <div className="container-custom">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 text-blue-600 text-xs font-medium mb-4">
-            <FiMessageSquare /> Get in Touch
+        <div className="text-center max-w-xl mx-auto mb-8">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-medium mb-3">
+            <FiMessageSquare className="text-sm" /> Get in Touch
           </div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Contact <span className="text-blue-700">Us</span>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            Contact <span className="text-blue-600">Us</span>
           </h2>
-          <p className="text-gray-600">
+          <p className="text-sm text-gray-600">
             Ready to discuss your project? Send us a message.
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Contact Info */}
-            <div className="space-y-6">
-              <div className="p-6 bg-white border border-gray-200 rounded-xl">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center">
-                    <FiMail className="w-6 h-6 text-blue-600" />
+            <div className="space-y-4">
+              <div className="p-4 bg-white border border-gray-200 rounded-lg">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
+                    <FiMail className="w-5 h-5 text-blue-600" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Email</h4>
+                    <h4 className="text-sm font-medium text-gray-900">Email</h4>
                     <a
                       href="mailto:hello@digitalgrowth.com"
                       className="text-sm text-blue-600 hover:text-blue-700"
@@ -83,13 +334,13 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="p-6 bg-white border border-gray-200 rounded-xl">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-lg bg-emerald-100 flex items-center justify-center">
-                    <FiPhone className="w-6 h-6 text-emerald-600" />
+              <div className="p-4 bg-white border border-gray-200 rounded-lg">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                    <FiPhone className="w-5 h-5 text-emerald-600" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Phone</h4>
+                    <h4 className="text-sm font-medium text-gray-900">Phone</h4>
                     <a
                       href="tel:+918237742040"
                       className="text-sm text-emerald-600 hover:text-emerald-700"
@@ -100,51 +351,50 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="p-6 bg-white border border-gray-200 rounded-xl">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center">
-                    <FiMapPin className="w-6 h-6 text-amber-600" />
+              <div className="p-4 bg-white border border-gray-200 rounded-lg">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center flex-shrink-0">
+                    <FiMapPin className="w-5 h-5 text-amber-600" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Hours</h4>
-                    <p className="text-sm text-gray-600">
-                      Mon-Fri: 9AM-6PM IST
-                    </p>
+                    <h4 className="text-sm font-medium text-gray-900">Hours</h4>
+                    <p className="text-sm text-gray-600">Mon-Fri: 9AM-6PM</p>
                   </div>
                 </div>
               </div>
 
               {/* Guarantee */}
-              <div className="p-5 bg-blue-50 border border-blue-100 rounded-xl">
-                <div className="flex items-center gap-2 mb-2">
-                  <FiCheckCircle className="text-emerald-500" />
-                  <span className="text-sm font-medium text-gray-900">
+              <div className="p-3 bg-blue-50 border border-blue-100 rounded-lg">
+                <div className="flex items-center gap-1.5 mb-1">
+                  <FiCheckCircle className="text-emerald-500 text-sm" />
+                  <span className="text-xs font-medium text-gray-900">
                     Fast Response
                   </span>
                 </div>
                 <p className="text-xs text-gray-600">
-                  We reply within 4 hours on business days
+                  Reply within 4 hours on business days
                 </p>
               </div>
             </div>
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <div className="bg-white border border-gray-200 rounded-xl p-6 md:p-8">
+              <div className="bg-white border border-gray-200 rounded-lg p-5 md:p-6">
                 {isSubmitted ? (
-                  <div className="text-center py-8">
-                    <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <FiCheckCircle className="w-8 h-8 text-emerald-500" />
+                  <div className="text-center py-6">
+                    <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <FiCheckCircle className="w-6 h-6 text-emerald-500" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">
                       Message Sent!
                     </h3>
-                    <p className="text-gray-600 mb-6">
+                    <p className="text-sm text-gray-600 mb-4">
                       We'll get back to you soon.
                     </p>
                     <Button
                       variant="outline"
                       onClick={() => setIsSubmitted(false)}
+                      size="sm"
                       className="border-blue-300 text-blue-700"
                     >
                       Send Another
@@ -152,13 +402,13 @@ export default function Contact() {
                   </div>
                 ) : (
                   <>
-                    <h3 className="text-xl font-bold text-gray-900 mb-6">
+                    <h3 className="text-lg font-bold text-gray-900 mb-4">
                       Send Message
                     </h3>
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                          <label className="block text-xs font-medium text-gray-700 mb-1.5">
                             Name *
                           </label>
                           <input
@@ -167,13 +417,13 @@ export default function Contact() {
                             value={formData.name}
                             onChange={handleChange}
                             required
-                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 outline-none"
+                            className="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 focus:border-blue-400 focus:ring-1 focus:ring-blue-100 outline-none"
                             placeholder="Your name"
                           />
                         </div>
 
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                          <label className="block text-xs font-medium text-gray-700 mb-1.5">
                             Email *
                           </label>
                           <input
@@ -182,14 +432,14 @@ export default function Contact() {
                             value={formData.email}
                             onChange={handleChange}
                             required
-                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 outline-none"
+                            className="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 focus:border-blue-400 focus:ring-1 focus:ring-blue-100 outline-none"
                             placeholder="your@email.com"
                           />
                         </div>
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-xs font-medium text-gray-700 mb-1.5">
                           Message *
                         </label>
                         <textarea
@@ -197,8 +447,8 @@ export default function Contact() {
                           value={formData.message}
                           onChange={handleChange}
                           required
-                          rows={4}
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 outline-none resize-none"
+                          rows={3}
+                          className="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 focus:border-blue-400 focus:ring-1 focus:ring-blue-100 outline-none resize-none"
                           placeholder="Tell us about your project..."
                         />
                       </div>
@@ -208,16 +458,16 @@ export default function Contact() {
                           type="submit"
                           variant="primary"
                           disabled={isSubmitting}
-                          className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3.5 rounded-lg"
+                          className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg text-sm"
                         >
                           {isSubmitting ? (
                             <div className="flex items-center justify-center gap-2">
-                              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                              <div className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin" />
                               Sending...
                             </div>
                           ) : (
                             <div className="flex items-center justify-center gap-2">
-                              <FiSend className="w-4 h-4" />
+                              <FiSend className="w-3.5 h-3.5" />
                               Send Message
                             </div>
                           )}
@@ -232,15 +482,15 @@ export default function Contact() {
         </div>
 
         {/* Additional Info */}
-        <div className="mt-12 pt-8 border-t border-gray-200">
+        <div className="mt-8 pt-6 border-t border-gray-200">
           <div className="text-center">
-            <p className="text-sm text-gray-500">
+            <p className="text-xs text-gray-500">
               Prefer a quick call?{" "}
               <a
                 href="tel:+918237742040"
                 className="text-blue-600 hover:text-blue-700 font-medium"
               >
-                Schedule a 15-minute discovery call →
+                Schedule a 15-minute call →
               </a>
             </p>
           </div>

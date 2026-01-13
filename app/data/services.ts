@@ -1,11 +1,118 @@
-// We'll use string icon names instead of React components for server compatibility
+// // We'll use string icon names instead of React components for server compatibility
 
+// export interface Service {
+//   id: number;
+//   title: string;
+//   description: string;
+//   icon: string; // Changed from React component to string
+//   color: string;
+//   features: string[];
+//   price: string;
+// }
+
+// export const services: Service[] = [
+//   {
+//     id: 1,
+//     title: "Website Development",
+//     description:
+//       "Custom, responsive websites built with modern technologies to showcase your business.",
+//     icon: "FiGlobe", // Changed to string
+//     color: "from-blue-500 to-cyan-500",
+//     features: [
+//       "Custom Design",
+//       "Mobile Responsive",
+//       "Fast Loading",
+//       "SEO Ready",
+//       "CMS Integration",
+//     ],
+//     price: "$1,499+",
+//   },
+//   {
+//     id: 2,
+//     title: "SEO Optimization",
+//     description:
+//       "Improve your search engine rankings and drive organic traffic to your website.",
+//     icon: "FiTrendingUp", // Changed to string
+//     color: "from-purple-500 to-pink-500",
+//     features: [
+//       "Keyword Research",
+//       "On-Page SEO",
+//       "Technical SEO",
+//       "Local SEO",
+//       "Monthly Reports",
+//     ],
+//     price: "$499/mo",
+//   },
+//   {
+//     id: 3,
+//     title: "E-commerce Solutions",
+//     description:
+//       "Complete online store setup with payment integration and inventory management.",
+//     icon: "FiShoppingCart", // Changed to string
+//     color: "from-green-500 to-emerald-500",
+//     features: [
+//       "Shopify/WordPress",
+//       "Payment Gateway",
+//       "Product Management",
+//       "Secure Checkout",
+//       "Order Tracking",
+//     ],
+//     price: "$2,999+",
+//   },
+//   {
+//     id: 4,
+//     title: "Mobile App Development",
+//     description:
+//       "Native and cross-platform mobile applications for iOS and Android.",
+//     icon: "FiSmartphone", // Changed to string
+//     color: "from-orange-500 to-red-500",
+//     features: [
+//       "iOS & Android",
+//       "UI/UX Design",
+//       "App Store Submission",
+//       "Push Notifications",
+//       "Maintenance",
+//     ],
+//     price: "$4,999+",
+//   },
+//   {
+//     id: 5,
+//     title: "Digital Marketing",
+//     description:
+//       "Strategic marketing campaigns to increase brand awareness and generate leads.",
+//     icon: "FiBarChart2", // Changed to string
+//     color: "from-yellow-500 to-amber-500",
+//     features: [
+//       "Social Media Marketing",
+//       "Email Campaigns",
+//       "PPC Management",
+//       "Content Strategy",
+//       "Analytics",
+//     ],
+//     price: "$799/mo",
+//   },
+//   {
+//     id: 6,
+//     title: "Website Maintenance",
+//     description:
+//       "Ongoing support, updates, and security monitoring for your website.",
+//     icon: "FiTool", // Changed to string
+//     color: "from-gray-500 to-slate-500",
+//     features: [
+//       "Regular Updates",
+//       "Security Monitoring",
+//       "Backup Services",
+//       "Performance Checks",
+//       "24/7 Support",
+//     ],
+//     price: "$199/mo",
+//   },
+// ];
 export interface Service {
   id: number;
   title: string;
   description: string;
-  icon: string; // Changed from React component to string
-  color: string;
+  icon: string;
   features: string[];
   price: string;
 }
@@ -13,98 +120,92 @@ export interface Service {
 export const services: Service[] = [
   {
     id: 1,
-    title: "Website Development",
+    title: "Website Design & Development",
     description:
-      "Custom, responsive websites built with modern technologies to showcase your business.",
-    icon: "FiGlobe", // Changed to string
-    color: "from-blue-500 to-cyan-500",
+      "We build fast, modern websites that make your business look professional and convert visitors into customers.",
+    icon: "FiGlobe",
     features: [
-      "Custom Design",
-      "Mobile Responsive",
-      "Fast Loading",
-      "SEO Ready",
-      "CMS Integration",
+      "Custom Design for Your Brand",
+      "Mobile & Tablet Friendly",
+      "Fast Loading Pages",
+      "Search Engine Friendly",
+      "Easy to Update",
     ],
-    price: "$1,499+",
+    price: "Starting at $1,500",
   },
   {
     id: 2,
-    title: "SEO Optimization",
+    title: "Search Engine Optimization (SEO)",
     description:
-      "Improve your search engine rankings and drive organic traffic to your website.",
-    icon: "FiTrendingUp", // Changed to string
-    color: "from-purple-500 to-pink-500",
+      "Help your business get found on Google and attract the right customers organically.",
+    icon: "FiTrendingUp",
     features: [
       "Keyword Research",
-      "On-Page SEO",
-      "Technical SEO",
-      "Local SEO",
-      "Monthly Reports",
+      "On-Page Optimization",
+      "Technical Improvements",
+      "Local SEO Setup",
+      "Monthly Performance Reports",
     ],
-    price: "$499/mo",
+    price: "$500 / month",
   },
   {
     id: 3,
-    title: "E-commerce Solutions",
+    title: "E-commerce Website",
     description:
-      "Complete online store setup with payment integration and inventory management.",
-    icon: "FiShoppingCart", // Changed to string
-    color: "from-green-500 to-emerald-500",
+      "Sell your products online with a secure, easy-to-manage online store.",
+    icon: "FiShoppingCart",
     features: [
-      "Shopify/WordPress",
-      "Payment Gateway",
-      "Product Management",
-      "Secure Checkout",
-      "Order Tracking",
+      "Product & Category Setup",
+      "Secure Online Payments",
+      "Order & Inventory Management",
+      "Mobile Shopping Experience",
+      "Admin Dashboard",
     ],
-    price: "$2,999+",
+    price: "Starting at $3,000",
   },
   {
     id: 4,
     title: "Mobile App Development",
     description:
-      "Native and cross-platform mobile applications for iOS and Android.",
-    icon: "FiSmartphone", // Changed to string
-    color: "from-orange-500 to-red-500",
+      "Custom mobile apps that help you engage customers and grow your business.",
+    icon: "FiSmartphone",
     features: [
-      "iOS & Android",
-      "UI/UX Design",
-      "App Store Submission",
+      "iOS & Android Apps",
+      "Clean & Simple UI",
+      "Fast & Reliable Performance",
       "Push Notifications",
-      "Maintenance",
+      "App Store Publishing",
     ],
-    price: "$4,999+",
+    price: "Starting at $5,000",
   },
   {
     id: 5,
-    title: "Digital Marketing",
+    title: "Website Speed & SEO Improvements",
     description:
-      "Strategic marketing campaigns to increase brand awareness and generate leads.",
-    icon: "FiBarChart2", // Changed to string
-    color: "from-yellow-500 to-amber-500",
+      "Improve website speed, visibility, and user experience to increase conversions.",
+    icon: "FiZap",
     features: [
-      "Social Media Marketing",
-      "Email Campaigns",
-      "PPC Management",
-      "Content Strategy",
-      "Analytics",
+      "Speed Optimization",
+      "Google Page Insights Fixes",
+      "SEO Best Practices",
+      "Mobile Performance",
+      "Analytics Setup",
     ],
-    price: "$799/mo",
+    price: "$500 / month",
   },
   {
     id: 6,
-    title: "Website Maintenance",
+    title: "Website Maintenance & Support",
     description:
-      "Ongoing support, updates, and security monitoring for your website.",
-    icon: "FiTool", // Changed to string
-    color: "from-gray-500 to-slate-500",
+      "We take care of updates, security, and fixes so you can focus on your business.",
+    icon: "FiTool",
     features: [
       "Regular Updates",
       "Security Monitoring",
-      "Backup Services",
-      "Performance Checks",
-      "24/7 Support",
+      "Bug Fixes",
+      "Backups",
+      "Priority Support",
     ],
-    price: "$199/mo",
+    price: "$200 / month",
   },
 ];
