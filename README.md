@@ -38,6 +38,6 @@ Make sure you have Node.js installed (v16+ recommended)
 ### 📦 Install
 
 ```bash
-git clone https://github.com/<YOUR_USERNAME>/digitalgrowth.git
+git clone https://github.com/Gopal562004/digitalgrowth.git
 cd digitalgrowth
 npm install
