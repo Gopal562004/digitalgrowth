@@ -1,20 +1,11 @@
-import { Analytics } from "@vercel/analytics/react";
-import Navbar from "@/app/_components/layout/Navbar";
-import Footer from "@/app/_components/layout/Footer";
-import Meta from "@/app/_components/seo/Meta";
+import type { Metadata } from "next";
 import "@/app/styles/globals.css";
+import { Toaster } from "sonner";
 
-// export const metadata = {
-//   title: "DigitalGrowth | Web Development & SEO Agency",
-//   description:
-//     "Helping small businesses grow with custom websites, SEO optimization, and digital solutions.",
-// };
-
-
-export const metadata = {
-  title: "DigitalGrowth | Web Development & SEO Agency",
+export const metadata: Metadata = {
+  title: "DigitalGrowth — Engineering Studio, Mumbai",
   description:
-    "Helping small businesses grow with custom websites, SEO optimization, and digital solutions.",
+    "Lean, founder-led engineering studio in Mumbai building fast websites, digital storefronts, and bespoke web platforms. Direct developer access, zero agency middlemen.",
   icons: {
     icon: [{ url: "/icons/digitalgrowth.png", type: "image/png" }],
     apple: [{ url: "/icons/digitalgrowth.png", type: "image/png" }],
@@ -30,16 +21,31 @@ export default function MainLayout({
   return (
     <html lang="en">
       <head>
-        <Meta />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body>
-        <div className="min-h-screen flex flex-col">
-          <Navbar />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </div>
-        {/* Add Analytics here - after all content */}
-        <Analytics />
+        {children}
+        <Toaster
+          position="bottom-right"
+          toastOptions={{
+            style: {
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: "11px",
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              border: "1px solid #DCD9D0",
+              borderRadius: "0",
+              background: "#F7F5F0",
+              color: "#121211",
+              boxShadow: "none",
+            },
+          }}
+        />
       </body>
     </html>
   );

@@ -1,126 +1,180 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-primary: #2563eb;
-  --color-secondary: #7c3aed;
-  --color-accent: #f59e0b;
-  --color-dark: #1e293b;
-  --color-light: #f8fafc;
-  
-  --animation-fade-in: fadeIn 0.5s ease-in-out;
-  --animation-slide-up: slideUp 0.5s ease-out;
-  
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  @keyframes slideUp {
-    from {
-      transform: translateY(20px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
+  /* DigitalGrowth — Warm Architectural Paper & Drafting Ink */
+  --color-canvas: #F7F5F0;
+  --color-surface: #FFFFFF;
+  --color-hairline: #DCD9D0;
+  --color-ink: #121211;
+  --color-graphite: #5A5852;
+  --color-emerald: #0D4A3A;
+  --color-vermilion: #D44D27;
+
+  /* Typography scale */
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
+
+/* Google Fonts loaded via layout.tsx <head> link tags instead */
 
 @layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto; /* Lenis handles this */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  
+
   body {
-    @apply bg-light text-dark antialiased;
+    background-color: #F7F5F0;
+    color: #121211;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.04em;
+  }
+
+  ::selection {
+    background-color: #0D4A3A;
+    color: #F7F5F0;
   }
 }
 
-@layer components {
-  .container-custom {
-    @apply container mx-auto px-4 md:px-8 max-w-7xl;
-  }
-  
-  .section-padding {
-    @apply py-12 md:py-20;
-  }
-  
-  .gradient-text {
-    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
-  }
-  
-  .bg-grid-slate-100 {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(241 245 249 / 0.2)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
-  }
-}
-
-@layer utilities {
-  .line-clamp-3 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-  }
-}
-
-/* Custom White Scrollbar Styles */
-
-/* For Webkit browsers (Chrome, Safari, Edge) */
+/* Custom minimal scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 4px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #f9fafb; /* gray-50 */
-  border-radius: 5px;
+  background: #F7F5F0;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #d1d5db; /* gray-300 */
-  border-radius: 5px;
-  border: 2px solid #f9fafb; /* matches track background */
+  background: #DCD9D0;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af; /* gray-400 */
+  background: #5A5852;
 }
-
-/* For Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #d1d5db #f9fafb; /* thumb track */
+  scrollbar-color: #DCD9D0 #F7F5F0;
 }
 
-/* Optional: Smooth scrolling for the entire page */
-html {
-  scroll-behavior: smooth;
+/* Architectural grid overlay utility */
+.arch-grid {
+  background-image:
+    linear-gradient(to right, #DCD9D0 1px, transparent 1px),
+    linear-gradient(to bottom, #DCD9D0 1px, transparent 1px);
+  background-size: 80px 80px;
 }
 
-/* Optional: Custom scrollbar for specific elements */
-.custom-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: #d1d5db #f9fafb;
+/* Hairline border */
+.hairline {
+  border: 1px solid #DCD9D0;
 }
 
-.custom-scrollbar::-webkit-scrollbar {
-  width: 8px;
+/* Clip mask for text reveal */
+.clip-reveal {
+  overflow: hidden;
+  display: block;
 }
 
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: #f9fafb;
+/* Fill sweep button */
+.btn-sweep {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #121211;
+  background: transparent;
+  color: #121211;
+  cursor: pointer;
+  transition: color 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.btn-sweep::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #0D4A3A;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+  z-index: 0;
+}
+.btn-sweep:hover::after {
+  transform: translateY(0);
+}
+.btn-sweep:hover {
+  color: #F7F5F0;
+}
+.btn-sweep span {
+  position: relative;
+  z-index: 1;
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #d1d5db;
-  border-radius: 4px;
+/* Emerald fill button */
+.btn-emerald {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #0D4A3A;
+  background: #0D4A3A;
+  color: #F7F5F0;
+  cursor: pointer;
+  transition: color 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.btn-emerald::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #121211;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+  z-index: 0;
+}
+.btn-emerald:hover::after {
+  transform: translateY(0);
+}
+.btn-emerald span {
+  position: relative;
+  z-index: 1;
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
+/* Row hover effect */
+.spec-row {
+  border-top: 1px solid #DCD9D0;
+  transition: background-color 0.2s ease;
+}
+.spec-row:hover {
+  background-color: rgba(13,74,58,0.04);
+}
+.spec-row:last-child {
+  border-bottom: 1px solid #DCD9D0;
+}
+
+/* Live status dot pulse */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.status-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Sonner toast custom */
+[data-sonner-toast] {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  border: 1px solid #DCD9D0 !important;
+  border-radius: 0 !important;
+  background: #F7F5F0 !important;
+  color: #121211 !important;
+}
+
+/* cmdk palette */
+[cmdk-root] {
+  font-family: 'JetBrains Mono', monospace;
 }
